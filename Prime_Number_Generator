@@ -1,0 +1,44 @@
+def prim_rechner(uebergabe):
+  '''
+    uebergabe = Zu Prüfende zahl
+    
+    Modulo von uebergabe und den Zahlen 2 bis 9 wird gebildet und in eine Liste (modulos) geschrieben. 
+    
+    Wenn in dieser Liste ein Wert mit "0" ist, ist es keine Primzahl und "None" wird zurückgegeben. 
+    Wenn kein Wert mit "0" in der Liste steht, ist es eine Primzahl und die uebergabe wird zurückgegeben. 
+  '''
+  dev = 2
+  modulos = []
+  
+  while dev < 10:
+    if uebergabe != dev:
+      modulo = uebergabe % dev
+      modulos.append(modulo)
+      dev += 1
+    else:
+      dev += 1
+  
+  laenge_liste = len(modulos)
+  position_liste = 0
+  
+  while position_liste < laenge_liste:
+    if modulos[position_liste] != 0:
+      position_liste += 1
+    else: 
+      break
+  else: 
+    return(uebergabe)
+    
+zahl = 1
+primzahlen = []
+
+while zahl < 1000: 
+  ausgabe = prim_rechner(zahl)
+  
+  if ausgabe != None:
+    primzahlen.append(ausgabe)
+    zahl += 1
+  else: 
+    zahl += 1
+
+print(primzahlen)
