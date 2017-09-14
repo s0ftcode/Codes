@@ -1,0 +1,14 @@
+search_range = 100000 #maximal range 
+blocked = [] #all numbers, that are no primes
+prim = [] #all primes
+
+for num in range(2, search_range): 
+  if num not in blocked: #check if num is no prime
+    prim.append(num)
+    
+    if num * num < search_range: #if the quadrat is smaller then max range
+      for i in range(num, search_range): 
+        j = num * i #block all multiples of num 
+        blocked.append(j)
+
+print("prim: ", prim) #print all primes
